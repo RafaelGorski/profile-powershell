@@ -8,6 +8,7 @@ Git and SVN Helpers in powershell command line.
 # How to install it?
 - git clone https://github.com/RafaelGorski/profile-powershell.git
 - cd profile-powershell
+- EDIT MANUALLY the path "C:\work\git\profile-powershell" to your clone folder.
 - git submodule update --init
 - New-item –type file –force $profile
 - cp .\Microsoft.PowerShell_profile.ps1 $profile

@@ -21,7 +21,7 @@ function isCurrentDirectoryARepository($type) {
 }
 
 # Posh-Svn and Posh-git prompt on $PWD.Path
-Push-Location 'C:\git\'
+Push-Location 'C:\work\git\profile-powershell'
 	.\posh-svn\profile.example.ps1
 	.\posh-git\profile.example.ps1
 Pop-Location

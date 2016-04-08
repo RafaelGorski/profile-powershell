@@ -1,6 +1,6 @@
-﻿# Rafael Gorski's POwershell Profile to load posh-git and posh-svn
-# Code adapted from http://stackoverflow.com/questions/4500134/posh-git-and-posh-hg-together
+﻿# Rafael Gorski's Powershell Profile to load posh-git and posh-svn + extra commands
 
+# Code adapted from http://stackoverflow.com/questions/4500134/posh-git-and-posh-hg-together
 function isCurrentDirectoryARepository($type) {
 
     if ((Test-Path $type) -eq $TRUE) {
@@ -24,6 +24,16 @@ function isCurrentDirectoryARepository($type) {
 Push-Location 'C:\work\git\profile-powershell'
 	.\posh-svn\profile.example.ps1
 	.\posh-git\profile.example.ps1
+	
+	#original from https://github.com/AnthonyMastrean/WindowsPowerShell/blob/master/Microsoft.PowerShell_profile.ps1
+	$here = Split-Path $PROFILE
+	cp cmds $here
+	$cmdlets = Join-Path . "cmds"
+	Get-ChildItem $cmdlets | %{ . $_.FullName }
+
+	Set-Alias ddel Remove-ItemNative
+	Set-Alias cal Write-Calendar
+	Set-Alias say Speak-Text	
 Pop-Location
 
 function prompt(){
@@ -44,3 +54,4 @@ function prompt(){
 
     return "> "
 }
+
